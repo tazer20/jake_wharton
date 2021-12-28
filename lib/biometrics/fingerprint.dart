@@ -3,7 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:jake_wharton/Screens/secondpage.dart';
+import 'package:jake_wharton/Screens/index.dart';
 import 'package:local_auth/local_auth.dart';
 
 class FingerPrintApp extends StatefulWidget {
@@ -60,7 +60,7 @@ class _FingerPrintAppState extends State<FingerPrintApp> {
       authorized = authenticated ? "Auth Sucess" : "Failed to auth";
       if (authenticated) {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => SecondPage()));
+            context, MaterialPageRoute(builder: (context) => IndexPage()));
       }
       print(authenticated);
     });
