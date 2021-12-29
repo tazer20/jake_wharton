@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jake_wharton/Screens/index.dart';
 import 'package:jake_wharton/biometrics/fingerprint.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FingerPrintApp(),
+      home: IndexPage(),
     );
   }
 }

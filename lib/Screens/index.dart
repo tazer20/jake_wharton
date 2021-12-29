@@ -5,7 +5,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:jake_wharton/theme/colors.dart';
+import 'package:lazy_load_scrollview/lazy_load_scrollview.dart';
 
 class IndexPage extends StatefulWidget {
   const IndexPage({Key? key}) : super(key: key);
@@ -16,12 +16,12 @@ class IndexPage extends StatefulWidget {
 
 class _IndexPageState extends State<IndexPage> {
   List users = [];
-  bool isLoading = false;
+  bool isLoading = false, alloted = false;
 
   @override
   void initState() {
     super.initState();
-    this.fetchUser();
+    fetchUser();
   }
 
   fetchUser() async {
@@ -53,9 +53,9 @@ class _IndexPageState extends State<IndexPage> {
   }
 
   Widget getBody() {
-    if (users.contains(null) || users.length < 0 || isLoading) {
-      return Center(child: CircularProgressIndicator());
-    }
+    // if (users.contains(null) || users.length < 0 || isLoading) {
+    //   return Center(child: CircularProgressIndicator());
+    // }
     return ListView.builder(
         itemCount: users.length,
         itemBuilder: (context, index) {
@@ -69,6 +69,7 @@ class _IndexPageState extends State<IndexPage> {
     var language = index['language'];
     var forks = index['forks_count'];
     var watchersCount = index['watchers_count'];
+
     return Card(
       child: Row(
         children: [
@@ -124,3 +125,14 @@ class _IndexPageState extends State<IndexPage> {
     );
   }
 }
+
+// if (response.statusCode == 200) {
+//       var items = json.decode(response.body);
+//       setState(() {
+//         users = items;
+//       });
+//     } else {
+//       setState(() {
+//         users = [];
+//       });
+//     }
